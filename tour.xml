@@ -1,0 +1,313 @@
+﻿<krpano version="1.20.7" title="Virtual Tour">
+
+	<include url="skin/vtourskin.xml" />
+
+<layer name="logo" type="image" url="images/2.png" keep="true" visible="true" width="105" height="120" align="righttop" x="10" y="0" zorder="10"/>
+
+<action name="show"> 
+	trace(layer[bar1].visible);
+	if(layer[bar1].visible EQ true,
+tween(layer[bar1].height, 0, 1, linear, set(layer[bar1].visible,false));
+,
+set(layer[bar1].visible, true);
+tween(layer[bar1].height, 250, 2, easeoutbounce);
+);
+</action>
+<action name="entrance">
+loadscene(scene_Photoshop4);
+</action>
+<action name="kitchen">
+loadscene(scene_Photoshop_1);
+</action>
+<action name="living">
+loadscene(scene_Photoshop3);
+</action>
+<action name="Bedroom">
+loadscene(scene_Photoshop2);
+</action>
+<layer
+	name="bkgrd" tpye="image" url="Images/3.png" keep="true" visible="true" width="100%" height="4.5%">
+	<layer name="bttn1" type="text" html="[b]Room[/b]" bgalpha="0.9" css="font-family:Arial Black; font-size:10px; color:#000000;" keep="true" padding="8 8 8 8" x="20" y="3" align="lefttop" onclick="show"/>
+</layer>
+<layer
+	name="bar1" type="container" bgalpha="0.6" keep="true" visible="false" width="120" height="0" y="4.5%" maskchildren="true">
+	<layer name="text1" type="text" html="Entrance" x="25" y="50" bg="false" css="color:#FFFFFF" onclick="entrance" />
+	<layer name="text2" type="text" html="Kitchen" x="25" y="100" bg="false" css="color:#FFFFFF" onclick="kitchen"/>
+	<layer name="text3" type="text" html="Living" x="25" y="150" bg="false" css="color:#FFFFFF" onclick="living"/>
+	<layer name="text4" type="text" html="Bedroom" x="25" y="200" bg="false" css="color:#FFFFFF" onclick="Bedroom"/>
+</layer>
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="false"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               maps_loadonfirstuse="true"
+	               gyro="true"
+	               gyro_keeplookingdirection="false"
+	               webvr="true"
+	               webvr_keeplookingdirection="true"
+	               webvr_prev_next_hotspots="true"
+	               autotour="false"
+	               littleplanetintro="false"
+	               followmousecontrol="false"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext="loading..."
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values 
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+
+
+	<!-- startup action - load the first scene -->
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		if(startactions !== null, startactions() );
+	</action>
+<action name="h"> 
+//set(hotspot[vrv].hlookat, get(view.hlookat));
+//set(hotspot[vrv].vlookat, get(view.vlookat));
+if(hotspot[v1].visible EQ false,
+set(hotspot[v1].visible, true);
+,
+set(hotspot[v1].visible, false);
+);
+</action>
+<!--
+
+<action name="h"> 
+set(hotspot[vrv].hlookat, get(view.hlookat));
+set(hotspot[vrv].vlookat, get(view.vlookat));
+if(hotspot[v1].visible EQ false,
+set(hotspot[v1].visible, true);
+,
+set(plugin[v1].visible, false);
+);
+</action>
+-->
+<action name="play1">
+	if(layer[v1].visible EQ false,
+set(layer[v1].visible, true);
+,
+set(plugin[v1].visible, false);
+);
+</action>
+<!--
+<layer name="v1"
+       url.html5="plugins/videoplayer.js"
+       videourl="Images/v22.mp4"
+       align="center" x="0" y="0"
+       pausedonstart="false"
+       loop="false"
+       volume="1.0"
+       visible="false"
+       Keep="true"
+       onvideoready=""
+       onvideoplay=""
+       onvideopaused=""
+       onvideocomplete=""
+       onerror=""
+/>
+-->
+
+
+
+	<scene name="scene_Photoshop_1" title="Photoshop 1" onstart="" havevrimage.mobilevr="false" havevrimage.no-mobilevr="true" thumburl="panos/Photoshop_1.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="271.657" vlookat="1.331" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Photoshop_1.tiles/preview.jpg" />
+
+		<image if="!(webvr.isenabled OR device.mobilevr)">
+			<cube url="panos/Photoshop_1.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280" />
+		</image>
+
+		<image if="webvr.isenabled OR device.mobilevr">
+			<cube url="panos/Photoshop_1.tiles/vr/pano_%s.jpg" />
+		</image>
+<!--
+<layer name="plb" type="image" url="Images/play1.png" onclick="play1" align="righttop" width="100" height="100" x="50" y="150"/>
+-->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="89.042" atv="26.522" onclick="" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="46.574" atv="27.558" linkedscene="scene_photoshop6" />
+	</scene>
+
+	<scene name="scene_photoshop2" title="photoshop2" onstart="" havevrimage.mobilevr="false" havevrimage.no-mobilevr="true" thumburl="panos/photoshop2.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="92.529" vlookat="2.142" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/photoshop2.tiles/preview.jpg" />
+
+		<image if="!(webvr.isenabled OR device.mobilevr)">
+			<cube url="panos/photoshop2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280" />
+		</image>
+
+		<image if="webvr.isenabled OR device.mobilevr">
+			<cube url="panos/photoshop2.tiles/vr/pano_%s.jpg" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-154.334" atv="29.583" linkedscene="scene_photoshop5" />
+
+	</scene>
+
+	<scene name="scene_Photoshop3" title="Photoshop3" onstart="" havevrimage.mobilevr="false" havevrimage.no-mobilevr="true" thumburl="panos/Photoshop3.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="180.000" vlookat="0.000" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Photoshop3.tiles/preview.jpg" />
+
+		<image if="!(webvr.isenabled OR device.mobilevr)">
+			<cube url="panos/Photoshop3.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280" />
+		</image>
+
+		<image if="webvr.isenabled OR device.mobilevr">
+			<cube url="panos/Photoshop3.tiles/vr/pano_%s.jpg" />
+		</image>
+		<hotspot name="v1"
+       url.html5="plugins/videoplayer.js"
+       videourl="Images/v22.mp4"
+       pausedonstart="false"
+       ath="180.000"
+       atv="0.000"
+       loop="true"
+       volume="1.0"
+       visible="true"
+       ty="-256"
+       tz="0"
+       tx="-1270"
+       keep="false"
+       width="1300"
+       height="760"
+       distorted="true"
+       depth="5000"
+       onvideoready=""
+       onvideoplay=""
+       onvideopaused=""
+       onvideocomplete=""
+       onerror=""
+       capture="false"
+        />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-139.177" atv="24.926" linkedscene="scene_photoshop6" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="159.708" atv="27.656" linkedscene="scene_photoshop4" />
+
+	</scene>
+
+	<scene name="scene_Photoshop4" title="Photoshop4" onstart="" havevrimage.mobilevr="false" havevrimage.no-mobilevr="true" thumburl="panos/Photoshop4.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-86.490" vlookat="0.555" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Photoshop4.tiles/preview.jpg" />
+
+		<image if="!(webvr.isenabled OR device.mobilevr)">
+			<cube url="panos/Photoshop4.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280" />
+		</image>
+
+		<image if="webvr.isenabled OR device.mobilevr">
+			<cube url="panos/Photoshop4.tiles/vr/pano_%s.jpg" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="179.161" atv="45.168" linkedscene="scene_photoshop_1" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="18.869" atv="43.395" linkedscene="scene_photoshop5" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-143.267" atv="39.673" linkedscene="scene_photoshop6" />
+
+	</scene>
+
+	<scene name="scene_Photoshop5" title="Photoshop5" onstart="" havevrimage.mobilevr="false" havevrimage.no-mobilevr="true" thumburl="panos/Photoshop5.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-92.308" vlookat="-4.145" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Photoshop5.tiles/preview.jpg" />
+
+		<image if="!(webvr.isenabled OR device.mobilevr)">
+			<cube url="panos/Photoshop5.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280" />
+		</image>
+
+		<image if="webvr.isenabled OR device.mobilevr">
+			<cube url="panos/Photoshop5.tiles/vr/pano_%s.jpg" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-25.423" atv="35.432" linkedscene="scene_photoshop2" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-150.229" atv="40.119" linkedscene="scene_photoshop4" />
+
+	</scene>
+
+	<scene name="scene_Photoshop6" title="Photoshop6" onstart="" havevrimage.mobilevr="false" havevrimage.no-mobilevr="true" thumburl="panos/Photoshop6.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="31.550" vlookat="-1.831" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Photoshop6.tiles/preview.jpg" />
+
+		<image if="!(webvr.isenabled OR device.mobilevr)">
+			<cube url="panos/Photoshop6.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280" />
+		</image>
+
+		<image if="webvr.isenabled OR device.mobilevr">
+			<cube url="panos/Photoshop6.tiles/vr/pano_%s.jpg" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="86.610" atv="13.526" linkedscene="scene_photoshop2" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="155.102" atv="37.451" linkedscene="scene_photoshop4" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-141.333" atv="53.842" linkedscene="scene_photoshop_1" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="30.164" atv="59.080" linkedscene="scene_photoshop3" />
+
+	</scene>
+
+	<scene name="scene_Photoshop7" title="Photoshop7" onstart="" havevrimage.mobilevr="false" havevrimage.no-mobilevr="true" thumburl="panos/Photoshop7.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Photoshop7.tiles/preview.jpg" />
+
+		<image if="!(webvr.isenabled OR device.mobilevr)">
+			<cube url="panos/Photoshop7.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,640,1280" />
+		</image>
+
+		<image if="webvr.isenabled OR device.mobilevr">
+			<cube url="panos/Photoshop7.tiles/vr/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+</krpano>
