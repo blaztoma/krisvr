@@ -211,7 +211,7 @@ set(plugin[v1].visible, false);
 		</image>
 		<hotspot name="v1"
        url.html5="plugins/videoplayer.js"
-       videourl="Images/v22.mp4"
+       videourl="Images/v.mp4"
        pausedonstart="false"
        ath="180.000"
        atv="0.000"
