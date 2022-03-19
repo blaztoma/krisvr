@@ -35,9 +35,9 @@ loadscene(scene_Photoshop2);
 </action>
 <layer
 	name="bkgrd" tpye="image" url="Images/3.png" keep="true" visible="true" width="100%" height="4.5%">
-	<layer name="bttn1" type="text" html="[b]Room[/b]" bgalpha="0.9" css="font-family:Arial Black; font-size:10px; color:#000000;" keep="true" padding="8 8 8 8" x="20" y="3" align="lefttop" onclick="show"/> 
-	<layer name="about" type="text" html="[b]About[/b]" bgalpha="0.9" css="font-family:Arial Black; font-size:10px; color:#000000;" keep="true" padding="8 8 8 8" x="90" y="3" align="lefttop" onclick="show_about"/>
-	<layer name="bttn3" type="text" html="[b]maps[/b]" bgalpha="0.9" css="font-family:Arial Black; font-size:10px; color:#000000;" keep="true" padding="8 8 8 8" x="200" y="3" align="lefttop"/>
+	<layer name="bttn1" type="text" html="[b]Room[/b]" bgalpha="0.9" css="font-family:Arial Black; font-size:10px; color:#000000;" keep="true" padding="5 8 5 8" x="20" y="4" align="lefttop" onclick="show"/> 
+	<layer name="bttn3" type="text" html="[b]About[/b]" bgalpha="0.9" css="font-family:Arial Black; font-size:10px; color:#000000;" keep="true" padding="5 8 5 8" x="132" y="4" align="lefttop" onclick="show_about"/>
+	<layer name="bttn2" type="text" html="[b]Map[/b]" bgalpha="0.9" css="font-family:Arial Black; font-size:10px; color:#000000;" keep="true" padding="5 8 5 8" x="80" y="4" align="lefttop"/>
 </layer>
 <layer
 	name="bar1" type="container" bgalpha="0.6" keep="true" visible="false" width="120" height="0" y="4.5%" maskchildren="true">
