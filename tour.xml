@@ -16,9 +16,10 @@ tween(layer[bar1].height, 250, 2, easeoutbounce);
 <action name="show_about"> 
 	trace(layer[about_page].visible);
 	if(layer[about_page].visible EQ true,
-set(layer[about_page].visible,false);
+tween(layer[about_page].height, 0, 1, linear, set(layer[about_page].visible,false));
 ,
 set(layer[about_page].visible, true);
+tween(layer[about_page].height, 550, 2, linear);
 );
 </action>
 <action name="entrance">
@@ -53,7 +54,7 @@ loadscene(scene_Photoshop2);
 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.[/h1]" bgalpha="0.5" keep="true" visible="false" width="40%" minwidth="500" align="center" 
-	css="color: #83b2fc; text-align: center; padding: 50px;">
+	css="color: #83b2fc; text-align: center; padding: 50px;" Height="0">
 </layer>
 	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
 	<skin_settings maps="false"
