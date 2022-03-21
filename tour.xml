@@ -83,8 +83,8 @@ loadscene(scene_Photoshop2);
 </gallery>
 
 	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
-	<skin_settings maps="false"
-	               maps_type="google"
+	<skin_settings maps="true"
+	               maps_type="bing"
 	               maps_bing_api_key=""
 	               maps_google_api_key=""
 	               maps_zoombuttons="false"
