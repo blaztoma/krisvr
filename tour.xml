@@ -175,7 +175,14 @@ set(plugin[v1].visible, false);
        onerror=""
 />
 -->
+<action name="zoom1">
+	trace(hotspot[spot1].ath);
+	lookto(get(hotspot[spot1].ath), 0, 120, linear);
+	loadscene(scene_photoshop4, null, MERGE, ZOOMBLEND(1));
+	lookat(-0.45,2.52,140,0,0);
 
+
+</action>
 
 
 	<scene name="scene_Photoshop_1" title="Photoshop 1" onstart="" havevrimage.mobilevr="false" havevrimage.no-mobilevr="true" thumburl="panos/Photoshop_1.tiles/thumb.jpg" lat="" lng="" heading="">
@@ -194,7 +201,7 @@ set(plugin[v1].visible, false);
 <!--
 <layer name="plb" type="image" url="Images/play1.png" onclick="play1" align="righttop" width="100" height="100" x="50" y="150"/>
 -->
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="89.042" atv="26.522" onclick="" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="89.042" atv="26.522" onclick="zoom1" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="46.574" atv="27.558" linkedscene="scene_photoshop6" />
 	</scene>
 
