@@ -1,8 +1,9 @@
 ﻿<krpano version="1.20.7" title="Virtual Tour">
 
 	<include url="skin/vtourskin.xml" />
+	<include url="plugins/swipe_gallery.xml" />
 
-<layer name="logo" type="image" url="images/2.png" keep="true" visible="true" width="105" height="120" align="righttop" x="10" y="0" zorder="10"/>
+<layer name="logo" type="image" url="images/2.png" keep="true" visible="true" width="105" height="120" align="rightbottom" x="10" y="0" zorder="10"/>
 
 <action name="show"> 
 	trace(layer[bar1].visible);
@@ -56,6 +57,31 @@ loadscene(scene_Photoshop2);
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.[/h1]" bgalpha="0.5" keep="true" visible="false" width="40%" minwidth="500" align="center" 
 	css="color: #83b2fc; text-align: center; padding: 50px;" Height="0">
 </layer>
+
+ <layer name="plp" type="image" url="Images/play1.png" onclick="show_gallery(gallery1),g1" align="leftbottom" width="50" height="50" x="250" y="15" visible="true" keep="true"/>
+
+<layer name="gallery" type="container" align="center" width="75%" height="75%" alpha="0" autoalpha="true" bgcolor="0x000000" bgalpha="0.8" keep="true">
+	<layer name="gallery_scrollarea" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" keep="true" align="left" width="0" height="100%" zorder="1" direction="h" ondown="set(gallery_scrollarea_start_pos, get(x))">
+	</layer>
+	<layer name="arrow_left"  align="left"  x="10" keep="true" visible="false" zorder="2" onclick="move_image(left)" url="images/l1.png"  width="50" height="75" />
+	<layer name="arrow_right" align="right" x="10" keep="true" visible="false" zorder="2" onclick="move_image(right)" url="images/r1.png" width="50" height="75"/>
+	<layer name="gallery_close" align="righttop" x="10" y="10" keep="true" zorder="2" onclick="hide_gallery()" url="images/c1.png" width="25" height="25" />
+</layer>
+
+
+<gallery name="gallery1" title="Title of gallery 1">
+	<img name="img1" url="images/slide1.png" />
+	<img name="img2" url="images/slide2.png" />
+	<img name="img3" url="images/slide3.png" />
+	<img name="img4" url="images/slide4.png" />
+	<img name="img5" url="images/slide5.png" />
+	<img name="img6" url="images/slide6.png" />
+	<img name="img7" url="images/slide7.png" />
+	<img name="img8" url="images/slide8.png" />
+	<img name="img9" url="images/slide9.png" />
+	<img name="img10" url="images/slide10.png" />
+</gallery>
+
 	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
 	<skin_settings maps="false"
 	               maps_type="google"
