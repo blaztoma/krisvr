@@ -57,8 +57,8 @@ loadscene(scene_Photoshop2);
 	css="color: #83b2fc; text-align: center; padding: 50px;" Height="0">
 </layer>
 	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
-	<skin_settings maps="false"
-	               maps_type="google"
+	<skin_settings maps="true"
+	               maps_type="bing"
 	               maps_bing_api_key=""
 	               maps_google_api_key=""
 	               maps_zoombuttons="false"
