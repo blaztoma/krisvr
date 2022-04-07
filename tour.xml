@@ -217,6 +217,22 @@ set(plugin[v1].visible, false);
 
 
 </action>
+<action name="zoom3">
+	
+	lookto(get(hotspot[spot1].ath), 0, 120, linear);
+	loadscene(scene_photoshop_1, null, MERGE, ZOOMBLEND(0.7));
+	lookat(-447.08,1.17,140,0,0);
+
+
+</action>
+<action name="zoom4">
+	
+	lookto(get(hotspot[spot3].ath), 0, 120, linear);
+	loadscene(scene_photoshop_1, null, MERGE, ZOOMBLEND(0.7));
+	lookat(195.17,2.82,140,0,0);
+
+</action>
+
 
 
 	<scene name="scene_Photoshop_1" title="Photoshop 1" onstart="" havevrimage.mobilevr="false" havevrimage.no-mobilevr="true" thumburl="panos/Photoshop_1.tiles/thumb.jpg" lat="" lng="" heading="">
@@ -311,7 +327,7 @@ set(plugin[v1].visible, false);
 		<image if="webvr.isenabled OR device.mobilevr">
 			<cube url="panos/Photoshop4.tiles/vr/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="179.161" atv="45.168" linkedscene="scene_photoshop_1" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="179.161" atv="45.168" onclick="zoom3" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="18.869" atv="43.395" linkedscene="scene_photoshop5" />
 		<hotspot name="spot3" style="skin_hotspotstyle" ath="-143.267" atv="39.673" linkedscene="scene_photoshop6" />
 
@@ -350,7 +366,7 @@ set(plugin[v1].visible, false);
 		</image>
 		<hotspot name="spot1" style="skin_hotspotstyle" ath="86.610" atv="13.526" linkedscene="scene_photoshop2" />
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="155.102" atv="37.451" linkedscene="scene_photoshop4" />
-		<hotspot name="spot3" style="skin_hotspotstyle" ath="-141.333" atv="53.842" linkedscene="scene_photoshop_1" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-141.333" atv="53.842" onclick="zoom4" />
 		<hotspot name="spot4" style="skin_hotspotstyle" ath="30.164" atv="59.080" linkedscene="scene_photoshop3" />
 
 	</scene>
